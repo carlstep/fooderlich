@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+// declares a TextTheme called lightTextTheme - uses googleFonts
 class FooderlichTheme {
   static TextTheme lightTextTheme = TextTheme(
     bodyText1: GoogleFonts.openSans(
@@ -29,7 +30,7 @@ class FooderlichTheme {
       color: Colors.black,
     ),
   );
-
+// declares a TextTheme called darkTextTheme - uses googleFonts
   static TextTheme darkTextTheme = TextTheme(
     bodyText1: GoogleFonts.openSans(
       fontSize: 14.0,
@@ -57,7 +58,8 @@ class FooderlichTheme {
       color: Colors.white,
     ),
   );
-
+// defines a static method - light
+  // returns color tones for a light theme using lightTextTheme above
   static ThemeData light() {
     return ThemeData(
       brightness: Brightness.light,
@@ -82,7 +84,8 @@ class FooderlichTheme {
       textTheme: lightTextTheme,
     );
   }
-
+// defines a static method - dark
+  // returns color tones for a dark theme using darkTextTheme above
   static ThemeData dark() {
     return ThemeData(
       brightness: Brightness.dark,
