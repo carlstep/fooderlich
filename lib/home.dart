@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'card1.dart';
+import 'card2.dart';
 
 // 1 - a StatefulWidget
 class Home extends StatefulWidget {
@@ -16,8 +17,7 @@ class _HomeState extends State<Home> {
   // 8 defines a List of widgets for each tab to display.
   static List<Widget> pages = <Widget>[
     const Card1(), // references Card1
-    // TODO: Replace with Card2
-    Container(color: Colors.green),
+    const Card2(), // reference Card2
     // TODO: Replace with Card3
     Container(color: Colors.blue),
   ];
