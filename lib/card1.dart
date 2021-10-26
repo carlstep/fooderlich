@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'home.dart';
+import 'fooderlich_theme.dart';
 
 class Card1 extends StatelessWidget {
   const Card1({Key? key}) : super(key: key);
@@ -16,7 +16,26 @@ class Card1 extends StatelessWidget {
     return Center(
       //
       child: Container(
-        // TODO: Add a stack of text
+        child: Stack(
+          children: [
+            Text(
+            category,
+            style: FooderlichTheme.darkTextTheme.bodyText1,
+          ),
+          Text(
+            title,
+            style: FooderlichTheme.darkTextTheme.headline5,
+          ),
+            Text(
+              description,
+              style: FooderlichTheme.darkTextTheme.bodyText1,
+            ),
+            Text(
+              chef,
+              style: FooderlichTheme.darkTextTheme.bodyText1,
+            ),
+          ],
+        ),
         // 1 applies the padding to the box
         padding: const EdgeInsets.all(16.0),
         // 2 constrains the containers size to w350 and h450
