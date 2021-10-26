@@ -9,7 +9,25 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  // TODO: Add state variables and functions
+  // 7 keeps a track of which tab is selected
+  int _selectedIndex = 0;
+
+  // 8 defines a List of widgets for each tab to display.
+  static List<Widget> pages = <Widget>[
+    // TODO: Replace with Card1
+    Container(color: Colors.red),
+    // TODO: Replace with Card2
+    Container(color: Colors.green),
+    // TODO: Replace with Card3
+    Container(color: Colors.blue),
+  ];
+
+  // 9 -
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,11 +40,12 @@ class _HomeState extends State<Home> {
         ),
       ),
       // TODO: Show selected tab
-      body: Center(
+      body: pages[_selectedIndex],
+        /*(
         child: Text('Let\'s get cooking 👩‍🍳',
         // 3
           style: Theme.of(context).textTheme.headline1),
-      ),
+      ),*/
       // 4 - defines a BottomNavigationBar
       bottomNavigationBar: BottomNavigationBar(
         // 5 - sets the selection color of an item when tapped
