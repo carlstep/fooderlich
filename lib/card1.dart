@@ -18,25 +18,40 @@ class Card1 extends StatelessWidget {
       child: Container(
         child: Stack(
           children: [
+            // Positioned widget not req. Text widget at top-left by default
             Text(
-            category,
-            style: FooderlichTheme.darkTextTheme.bodyText1,
-          ),
-          Text(
-            title,
-            style: FooderlichTheme.darkTextTheme.headline5,
-          ),
-            Text(
-              description,
+              category,
               style: FooderlichTheme.darkTextTheme.bodyText1,
             ),
-            Text(
-              chef,
-              style: FooderlichTheme.darkTextTheme.bodyText1,
+            // Positioned 20 pixels from top
+            Positioned(
+              child: Text(
+                title,
+                style: FooderlichTheme.darkTextTheme.headline5,
+              ),
+              top: 20,
+            ),
+            // Positioned 30 pixels from bottom and 0 pixels from right
+            Positioned(
+              child: Text(
+                description,
+                style: FooderlichTheme.darkTextTheme.bodyText1,
+              ),
+              bottom: 30,
+              right: 0,
+            ),
+            // Positioned 10 pixels from bottom and 0 pixels from right
+            Positioned(
+              child: Text(
+                chef,
+                style: FooderlichTheme.darkTextTheme.bodyText1,
+              ),
+              bottom: 10,
+              right: 0,
             ),
           ],
         ),
-        // 1 applies the padding to the box
+        // applies the padding to the box
         padding: const EdgeInsets.all(16.0),
         // 2 constrains the containers size to w350 and h450
         constraints: const BoxConstraints.expand(
@@ -47,15 +62,15 @@ class Card1 extends StatelessWidget {
         decoration: const BoxDecoration(
           // 4 sets up DecorationImage, tells the box to paint an image
           image: DecorationImage(
-    // 5 AssetImage tells which image to grab from the assets folder
-          image: AssetImage('assets/mag1.png'),
-          // 6 fit the image to cover the box
-          fit: BoxFit.cover,
+            // 5 AssetImage tells which image to grab from the assets folder
+            image: AssetImage('assets/mag1.png'),
+            // 6 fit the image to cover the box
+            fit: BoxFit.cover,
+          ),
+          // 7 apply corner radius to image
+          borderRadius: BorderRadius.all(Radius.circular(10.0)),
         ),
-        // 7 apply corner radius to image
-        borderRadius: BorderRadius.all(Radius.circular(10.0)),
       ),
-    ),
     );
   }
 }
