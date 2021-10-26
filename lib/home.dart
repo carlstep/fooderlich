@@ -39,18 +39,15 @@ class _HomeState extends State<Home> {
           style: Theme.of(context).textTheme.headline6,
         ),
       ),
-      // TODO: Show selected tab
       body: pages[_selectedIndex],
-        /*(
-        child: Text('Let\'s get cooking 👩‍🍳',
-        // 3
-          style: Theme.of(context).textTheme.headline1),
-      ),*/
       // 4 - defines a BottomNavigationBar
       bottomNavigationBar: BottomNavigationBar(
         // 5 - sets the selection color of an item when tapped
         selectedItemColor: Theme.of(context).textSelectionTheme.selectionColor,
-        // TODO: Set selected tab bar
+        // 10 tells the bottom nav bar which item to highlight
+        currentIndex: _selectedIndex,
+        // 11 calls OnItemTapped, sets the state with correct index color
+        onTap: _onItemTapped,
         // 6 - defined three bottom navigation tab bar items in a list.
         items: <BottomNavigationBarItem>[
           const BottomNavigationBarItem(
