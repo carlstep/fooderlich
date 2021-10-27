@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'author_card.dart';
+import 'fooderlich_theme.dart';
 
 class Card2 extends StatelessWidget {
   const Card2({Key? key}) : super(key: key);
@@ -14,7 +15,7 @@ class Card2 extends StatelessWidget {
         ),
         decoration: const BoxDecoration(
           image: DecorationImage(
-              image: AssetImage('assets/mag5.png'),
+            image: AssetImage('assets/mag5.png'),
             fit: BoxFit.cover,
           ),
           borderRadius: BorderRadius.all(
@@ -25,12 +26,40 @@ class Card2 extends StatelessWidget {
         child: Column(
           children: [
             const AuthorCard(
-                authorName: 'Mike Katz',
-                title: 'Smoothie Connoisseur',
-              imageProvider: AssetImage('assets/author_katz.jpeg',
+              authorName: 'Mike Katz',
+              title: 'Smoothie Connoisseur',
+              imageProvider: AssetImage(
+                'assets/author_katz.jpeg',
               ),
             ),
-            // TODO 4: add Positioned text
+            // Expanded fills the remaining available space
+            Expanded(
+                // apply Stack to position texts on top of each other
+                child: Stack(
+              children: [
+                // position first Text at the bottom-right
+                Positioned(
+                  bottom: 16,
+                  right: 16,
+                  child: Text(
+                    'Recipe',
+                    style: FooderlichTheme.lightTextTheme.headline1,
+                  ),
+                ),
+                // position second Text from bottom-left and rotate
+                Positioned(
+                  bottom: 70,
+                  left: 5,
+                  child: RotatedBox(
+                    quarterTurns: 3,
+                    child: Text(
+                      'Smoothies',
+                      style: FooderlichTheme.lightTextTheme.headline1,
+                    ),
+                  ),
+                )
+              ],
+            ))
           ],
         ),
       ),
