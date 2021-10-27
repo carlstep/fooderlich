@@ -22,9 +22,118 @@ class Card3 extends StatelessWidget {
         ),
         child: Stack(
           children: [
-            // TODO 5: add dark overlay BoxDecoration
-            // TODO 6: add Container, Column, Icon and Text
-            // TODO 7: add Center widget with Chip widget children
+            // Container with color overlay with 0.6 opacity
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.black.withOpacity(0.6),
+                // gives the appearance of rounded corners
+                borderRadius: const BorderRadius.all(
+                  Radius.circular(10.0),
+                ),
+              ),
+            ),
+            Container(
+              // apply padding with 16 pixels on all sides
+              padding: const EdgeInsets.all(16),
+              // sets up the column and child to layout widgets
+              child: Column(
+                // position is 'start' to position to the left
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // book icon
+                  const Icon(
+                    Icons.book,
+                    color: Colors.white,
+                    size: 40,
+                  ),
+                  // apply 8 pixel space vertically
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  // adds a text widget
+                  Text(
+                    'Recipe Trends',
+                    style: FooderlichTheme.darkTextTheme.headline2,
+                  ),
+                  // apply a sizedbox to space vertically with 30 pixels
+                  const SizedBox(
+                    height: 30,
+                  ),
+                ],
+              ),
+            ),
+            Center(
+              // a Center widget with a Wrap layout widget
+              child: Wrap(
+                // placement starts at the left
+                alignment: WrapAlignment.start,
+                // 12 pixel spacing between each child
+                spacing: 12,
+                // children with Chip widgets
+                children: [
+                  Chip(
+                    label: Text(
+                        'Healthy',
+                        style: FooderlichTheme.darkTextTheme.bodyText1),
+                    backgroundColor: Colors.black.withOpacity(0.7),
+                    onDeleted: () {
+                      print('delete');
+                    },
+                  ),
+                  Chip(
+                    label: Text(
+                        'Vegan',
+                        style: FooderlichTheme.darkTextTheme.bodyText1),
+                    backgroundColor: Colors.black.withOpacity(0.7),
+                    onDeleted: () {
+                      print('delete');
+                    },
+                  ),
+                  Chip(
+                    label: Text(
+                        'Carrots',
+                        style: FooderlichTheme.darkTextTheme.bodyText1),
+                    backgroundColor: Colors.black.withOpacity(0.7),
+                  ),
+                  Chip(
+                    label: Text(
+                        'Pizza',
+                        style: FooderlichTheme.darkTextTheme.bodyText1),
+                    backgroundColor: Colors.black.withOpacity(0.7),
+                    onDeleted: () {
+                      print('delete');
+                    },
+                  ),
+                  Chip(
+                    label: Text(
+                        'Desserts',
+                        style: FooderlichTheme.darkTextTheme.bodyText1),
+                    backgroundColor: Colors.black.withOpacity(0.7),
+                    onDeleted: () {
+                      print('delete');
+                    },
+                  ),
+                  Chip(
+                    label: Text(
+                        'Gluten-Free',
+                        style: FooderlichTheme.darkTextTheme.bodyText1),
+                    backgroundColor: Colors.black.withOpacity(0.7),
+                    onDeleted: () {
+                      print('delete');
+                    },
+                  ),
+                  Chip(
+                    label: Text(
+                        'Coffee',
+                        style: FooderlichTheme.darkTextTheme.bodyText1),
+                    backgroundColor: Colors.black.withOpacity(0.7),
+                    onDeleted: () {
+                      print('delete');
+                    },
+                  ),
+                ],
+              ),
+            )
           ],
         ),
       ),
