@@ -21,7 +21,7 @@ class AuthorCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       child: Row(
-        // TODO 3: add alignment
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           // inner Row groups CircleImage and Text
           Row(
@@ -30,7 +30,7 @@ class AuthorCard extends StatelessWidget {
                 imageProvider: imageProvider,
                 imageRadius: 28,
               ),
-              // seperates the image and text with a SizedBox
+              // separates the image and text with a SizedBox
               const SizedBox(width: 8),
               // displays the authorName and job title
               Column(
@@ -48,15 +48,18 @@ class AuthorCard extends StatelessWidget {
               ),
             ],
           ),
-          // TODO 2: add IconButton
+          IconButton(
+            // sets the parameters for the icon - size, color
+            icon: const Icon(Icons.favorite_border),
+            iconSize: 30,
+            color: Colors.grey[400],
+            // when pressed, display snackbar to inform a user of an action
+            onPressed: () {
+              const snackBar = SnackBar(content: Text('Favorite Pressed'));
+              ScaffoldMessenger.of(context).showSnackBar(snackBar);
+            },
+          ),
         ],
-      ),
-    );
-
-    return Container(
-      padding: const EdgeInsets.all(16),
-      child: Row(
-        children: [],
       ),
     );
   }
