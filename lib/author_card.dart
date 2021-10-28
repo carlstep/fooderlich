@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'fooderlich_theme.dart';
 import 'circle_image.dart';
 
-class AuthorCard extends StatelessWidget {
+class AuthorCard extends StatefulWidget {
   // sets up the three properties for the AuthorCard class
   final String authorName;
   final String title;
@@ -15,7 +15,13 @@ class AuthorCard extends StatelessWidget {
     this.imageProvider,
   }) : super(key: key);
 
-  // AuthorCard is grouped in a Container with a Row
+  @override
+  _AuthorCardState createState() => _AuthorCardState();
+}
+
+bool _isFavorited = false;
+
+class _AuthorCardState extends State<AuthorCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -27,7 +33,7 @@ class AuthorCard extends StatelessWidget {
           Row(
             children: [
               CircleImage(
-                imageProvider: imageProvider,
+                imageProvider: widget.imageProvider,
                 imageRadius: 28,
               ),
               // separates the image and text with a SizedBox
@@ -37,11 +43,11 @@ class AuthorCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    authorName,
+                    widget.authorName,
                     style: FooderlichTheme.lightTextTheme.headline2,
                   ),
                   Text(
-                    title,
+                    widget.title,
                     style: FooderlichTheme.lightTextTheme.headline3,
                   )
                 ],
@@ -49,16 +55,19 @@ class AuthorCard extends StatelessWidget {
             ],
           ),
           IconButton(
-            // sets the parameters for the icon - size, color
-            icon: const Icon(Icons.favorite_border),
+            // 1
+            icon: Icon(_isFavorited ? Icons.favorite : Icons.favorite_border),
             iconSize: 30,
-            color: Colors.grey[400],
-            // when pressed, display snackbar to inform a user of an action
+            // 2
+            color: Colors.red[400],
             onPressed: () {
-              const snackBar = SnackBar(content: Text('Favorite Pressed'));
-              ScaffoldMessenger.of(context).showSnackBar(snackBar);
+              // 3
+              setState(() {
+                _isFavorited = !_isFavorited;
+              });
             },
-          ),
+          )
+
         ],
       ),
     );
